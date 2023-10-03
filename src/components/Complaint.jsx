@@ -116,7 +116,7 @@ export default function Multistep() {
       allData.push(pincode);
       allData.push(latitude);
       allData.push(longitude);
-      await axios.post("http://localhost:5000/api/sendcomplaint", {
+      await axios.post("https://sunhearrtbackend.onrender.com/api/sendcomplaint", {
         allData
       }).then((data) => {
         console.log(data);
