@@ -96,7 +96,7 @@ export default function Multistep() {
     } else {
       window.alert("Geolocation on this browser is not enabled!")
     }
-  }, [latitude,longitude]);
+  });
 
   const submitFunc = async (e) => {
     try {
