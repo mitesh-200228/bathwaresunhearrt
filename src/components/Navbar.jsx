@@ -16,9 +16,6 @@ export default function WithAction() {
   const funcRedirect = async() => {
     navigate('/complaint');
   };
-  const funclogin = async() => {
-    navigate('/login');
-  }
   return (
     <div className='main'>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
