@@ -124,10 +124,13 @@ export default function Multistep() {
         }
       }).catch(error => {
         window.alert("Some Error Occured!");
+        return false;
       })
     } catch (error) {
       window.alert("Some Error Occured!");
+      return false;
     }
+    return false;
   }
   return (
     <>
@@ -459,8 +462,8 @@ export default function Multistep() {
                 w="7rem"
                 colorScheme="red"
                 variant="solid"
-                onClick={() => { 
-                  const value = submitFunc();
+                onClick={async() => { 
+                  const value = await submitFunc();
                   if(value){
                     toast({
                       title: 'Complaint Registered Successfully.',
