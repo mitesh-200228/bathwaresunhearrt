@@ -7,10 +7,10 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import { Routes, Route } from 'react-router-dom';
 import Complaint from './components/Complaint';
-import Login from './components/Login';
-import YourComplaints from './components/YourComplaints';
+// import Login from './components/Login';
+// import YourComplaints from './components/YourComplaints';
 import Admin from './components/Admin';
-import AdminDashboard from './components/AdminDashboard';
+// import AdminDashboard from './components/AdminDashboard';
 // require('dotenv').config()
 function App() {
   

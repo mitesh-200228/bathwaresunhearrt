@@ -1,8 +1,6 @@
 import {
   Flex,
-  Button,
 } from '@chakra-ui/react'
-import axios from 'axios';
 import {
   Table,
   Thead,
@@ -16,7 +14,7 @@ import React from 'react';
 export default function AdminDashboard({ keypass }) {
   const value = localStorage.getItem('user');
   console.log(value);
-  const [userD, setUserD] = React.useState();
+  const [userD] = React.useState();
   return (
     <>
       {/* <Button m={6} onClick={triggerFunction}>Fetch Your Data</Button> */}

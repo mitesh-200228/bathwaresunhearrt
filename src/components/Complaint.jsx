@@ -86,17 +86,17 @@ export default function Multistep() {
         (position) => {
           setLatitude(position.coords.latitude);
           setLongitude(position.coords.longitude);
-          localStorage.setItem("latitude", latitude);
-          localStorage.setItem("longitude", longitude);
+          localStorage.setItem("latitude",latitude);
+          localStorage.setItem("longitude",longitude);
         },
         (error) => {
-          window.alert("Error Occured! Try Again Later")
+          console.error(error);
         }
       );
     } else {
-      window.alert("Geolocation on this browser is not enabled!")
+      console.error('Geolocation is not supported by this browser.');
     }
-  });
+  }, [latitude,longitude]);
 
   const submitFunc = async (e) => {
     try {
@@ -119,14 +119,13 @@ export default function Multistep() {
       await axios.post("https://sunhearrtbackend.onrender.com/api/sendcomplaint", {
         allData
       }).then((data) => {
-        return true;
+        console.log(data);
       }).catch(error => {
-        window.alert("Error Occured! Try Again Later")
+        console.log(error);
       })
     } catch (error) {
-      window.alert("Error Occured! Try Again Later")
+      console.log(error);
     }
-    return false;
   }
   return (
     <>
@@ -185,7 +184,7 @@ export default function Multistep() {
             Your Problem
           </Heading>
           <SimpleGrid columns={1} spacing={6}>
-            <FormControl as={GridItem} colSpan={[1, 2]}>
+            <FormControl as={GridItem} colSpan={[3, 2]}>
               <FormLabel
                 fontSize="sm"
                 fontWeight="md"
@@ -247,7 +246,7 @@ export default function Multistep() {
                 _dark={{
                   color: 'gray.50',
                 }}>
-                Any Comments?
+                Comments?
               </FormLabel>
               <Input
                 placeholder="Your Comments..."
@@ -423,7 +422,7 @@ export default function Multistep() {
           </FormControl>
         </>}
         <ButtonGroup mt="5%" w="100%">
-          <Flex w="100%" justifyContent="space-between" flexDir={'column'}>
+          <Flex w="100%" justifyContent="space-between">
             <Flex>
               <Button
                 onClick={() => {
@@ -453,37 +452,24 @@ export default function Multistep() {
                 Next
               </Button>
             </Flex>
-            <Flex marginTop={2}>
-              {step === 3 ? (
-                <Button
-                  minW="7rem"
-                  colorScheme="red"
-                  justifySelf={'center'}
-                  variant="solid"
-                  onClick={() => {
-                    const value = submitFunc();
-                    if (value) {
-                      toast({
-                        title: 'Complaint Registered Successfully.',
-                        description: "We've created your complaint and we will get back to you.",
-                        status: 'success',
-                        duration: 3000,
-                        isClosable: true,
-                      });
-                    } else {
-                      toast({
-                        title: 'Some Error Occured.',
-                        description: "Sorry, but please try again later.",
-                        status: 'error',
-                        duration: 3000,
-                        isClosable: true,
-                      });
-                    }
-                  }}>
-                  Submit
-                </Button>
-              ) : null}
-            </Flex>
+            {step === 3 ? (
+              <Button
+                w="7rem"
+                colorScheme="red"
+                variant="solid"
+                onClick={() => { 
+                  submitFunc();
+                  toast({
+                    title: 'Complaint Registered Successfully.',
+                    description: "We've created your complaint and we will get back to you.",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                  }) 
+                }}>
+                Submit
+              </Button>
+            ) : null}
           </Flex>
         </ButtonGroup>
       </Box>
