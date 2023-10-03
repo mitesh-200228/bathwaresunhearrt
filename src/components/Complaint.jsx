@@ -119,7 +119,7 @@ export default function Multistep() {
       await axios.post("https://sunhearrtbackend.onrender.com/api/sendcomplaint", {
         allData
       }).then((data) => {
-        if(data.status === 200){
+        if(data.status === 200 || data.status === 203 || data.status === 204){
           return true;
         }
       }).catch(error => {
