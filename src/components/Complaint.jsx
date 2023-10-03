@@ -96,7 +96,7 @@ export default function Multistep() {
     } else {
       console.error('Geolocation is not supported by this browser.');
     }
-  }, [latitude,longitude]);
+  });
 
   const submitFunc = async (e) => {
     try {
@@ -119,12 +119,14 @@ export default function Multistep() {
       await axios.post("https://sunhearrtbackend.onrender.com/api/sendcomplaint", {
         allData
       }).then((data) => {
-        console.log(data);
+        if(data.status === 200){
+          return true;
+        }
       }).catch(error => {
-        console.log(error);
+        window.alert("Some Error Occured!");
       })
     } catch (error) {
-      console.log(error);
+      window.alert("Some Error Occured!");
     }
   }
   return (
@@ -458,14 +460,24 @@ export default function Multistep() {
                 colorScheme="red"
                 variant="solid"
                 onClick={() => { 
-                  submitFunc();
-                  toast({
-                    title: 'Complaint Registered Successfully.',
-                    description: "We've created your complaint and we will get back to you.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                  }) 
+                  const value = submitFunc();
+                  if(value){
+                    toast({
+                      title: 'Complaint Registered Successfully.',
+                      description: "We've created your complaint and we will get back to you.",
+                      status: 'success',
+                      duration: 3000,
+                      isClosable: true,
+                    }) 
+                  }else{
+                    toast({
+                      title: 'Please Enter All Details.',
+                      description: "if you entered all details, there is internal server error!",
+                      status: 'error',
+                      duration: 5000,
+                      isClosable: true,
+                    }) 
+                  }
                 }}>
                 Submit
               </Button>
