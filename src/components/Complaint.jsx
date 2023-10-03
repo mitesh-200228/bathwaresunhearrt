@@ -130,7 +130,6 @@ export default function Multistep() {
       window.alert("Some Error Occured!");
       return false;
     }
-    return false;
   }
   return (
     <>
