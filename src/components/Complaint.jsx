@@ -80,7 +80,6 @@ export default function Multistep() {
 
   const [latitude, setLatitude] = React.useState(null);
   const [longitude, setLongitude] = React.useState(null);
-  const [msg, setMsg] = React.useState(0);
   React.useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
