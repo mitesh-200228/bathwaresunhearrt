@@ -45,6 +45,7 @@ export default function Admin() {
                     "Last Name": dt.lastname,
                     "Email": dt.email,
                     "Phone Number": dt.number,
+                    "Number Of Complaints" : dt.numberOfComplain,
                     "Complaint Type": dt.typeIssue,
                     "Comments": dt.comments,
                     "Other Comments": dt.others,
