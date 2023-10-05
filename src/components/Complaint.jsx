@@ -188,7 +188,7 @@ export default function Multistep() {
             Your Problem
           </Heading>
           <SimpleGrid columns={1} spacing={6}>
-            <FormControl as={GridItem} colSpan={[3, 2]}>
+            <FormControl as={GridItem} colSpan={[1, 2]}>
               <FormLabel
                 fontSize="sm"
                 fontWeight="md"
@@ -426,7 +426,7 @@ export default function Multistep() {
           </FormControl>
         </>}
         <ButtonGroup mt="5%" w="100%">
-          <Flex w="100%" justifyContent="space-between">
+          <Flex w="100%" justifyContent="space-evenly" flexDirection={'column'}>
             <Flex>
               <Button
                 onClick={() => {
@@ -456,24 +456,27 @@ export default function Multistep() {
                 Next
               </Button>
             </Flex>
-            {step === 3 ? (
-              <Button
-                w="7rem"
-                colorScheme="red"
-                variant="solid"
-                onClick={async () => {
-                  submitFunc();
-                  toast({
-                    title: 'Complaint Registered Successfully.',
-                    description: "We've created your complaint and we will get back to you.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                  })
-                }}>
-                Submit
-              </Button>
-            ) : null}
+            <Flex>
+              {step === 3 ? (
+                <Button
+                  w="7rem"
+                  colorScheme="red"
+                  marginTop={2}
+                  variant="solid"
+                  onClick={async () => {
+                    submitFunc();
+                    toast({
+                      title: 'Complaint Registered Successfully.',
+                      description: "We've created your complaint and we will get back to you.",
+                      status: 'success',
+                      duration: 3000,
+                      isClosable: true,
+                    })
+                  }}>
+                  Submit
+                </Button>
+              ) : null}
+            </Flex>
           </Flex>
         </ButtonGroup>
       </Box>

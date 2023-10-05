@@ -63,8 +63,8 @@ export default function Admin() {
             {isAuthenticatedSuccessfully ? <>
                 {/* <Button m={6} onClick={triggerFunction}>Fetch Your Data</Button> */}
                 <Flex m={10} flexDir={'column'}>
-                    <Text>Click This Button to get Excel Sheet</Text>
-                    <Box m={10}>
+                    <Text p={5} fontWeight="bold">Click Below Button to get Excel Sheet</Text>
+                    <Box m={10} backdropBlur={'2xl'} fontWeight="bold">
                         <ExportToExcel apiData={finalData} fileName={'SUNHEARRT_CUSTOMER_DATA'} />
                     </Box>
                     <TableContainer>
