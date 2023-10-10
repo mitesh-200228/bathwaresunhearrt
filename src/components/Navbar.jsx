@@ -24,10 +24,9 @@ export default function WithAction() {
             <Box>
               <Image boxSize='100px' src={Logo} alt='logo' className=''/>
             </Box>
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+            <HStack as={'nav'} fontWeight={700} spacing={4} display={{ base: 'none', md: 'flex' }}>
               <Link to="/">Home</Link>
               <Link to="/complaint">Complaint</Link>
-              
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>

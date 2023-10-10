@@ -7,7 +7,7 @@ import {
   Box,
   ButtonGroup,
   Button,
-  Heading,
+  Text,
   Flex,
   FormControl,
   GridItem,
@@ -142,9 +142,9 @@ export default function Multistep() {
         as="form">
         <Progress hasStripe value={progress} mb="5%" mx="5%" isAnimated></Progress>
         {step === 1 ? <>
-          <Heading w="100%" textAlign={'center'} mb="2%" className='main'>
+          <Text w="100%" textAlign={'center'} mb="2%" className='main' fontSize={'3xl'}>
             User Registration
-          </Heading>
+          </Text>
           <Flex>
             <FormControl mr="5%">
               <FormLabel htmlFor="first-name" fontWeight={'normal'}>
@@ -183,9 +183,9 @@ export default function Multistep() {
             </InputGroup>
           </FormControl>
         </> : step === 2 ? <>
-          <Heading w="100%" textAlign={'center'} className='main'>
+          <Text w="100%" textAlign={'center'} className='main' fontSize={'3xl'}>
             Your Problem
-          </Heading>
+          </Text>
           <SimpleGrid columns={1} spacing={6}>
             <FormControl as={GridItem} colSpan={[1, 2]}>
               <FormLabel
@@ -287,9 +287,9 @@ export default function Multistep() {
             </FormControl>
           </SimpleGrid>
         </> : <>
-          <Heading w="100%" textAlign={'center'} mb="2%" className='main'>
+          <Text w="100%" textAlign={'center'} mb="2%" className='main' fontSize={'3xl'}>
             Address Details
-          </Heading>
+          </Text>
           <FormControl as={GridItem} colSpan={[6, 3]}>
             <FormLabel
               htmlFor="country"
