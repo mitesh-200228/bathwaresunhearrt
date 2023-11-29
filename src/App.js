@@ -10,12 +10,9 @@ import Complaint from './components/Complaint';
 // import Login from './components/Login';
 // import YourComplaints from './components/YourComplaints';
 import Admin from './components/Admin';
-import Footer from './components/Footer';
 // import AdminDashboard from './components/AdminDashboard';
 // require('dotenv').config()
 function App() {
-
-  const randomString = process.env.KEY;
   return (
     <ChakraProvider theme={theme}>
       <Navbar />
