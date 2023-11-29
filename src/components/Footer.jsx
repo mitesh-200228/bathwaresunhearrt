@@ -1,9 +1,9 @@
 import {
   Box,
   chakra,
-  Container,
+  Container, Flex,
   Stack,
-  Text,Image,
+  Text, Image,
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react'
@@ -49,7 +49,7 @@ export default function SmallCentered() {
         justify={'center'}
         align={'center'}>
         {/* <Logo /> */}
-        <Image boxSize='100px' src={Logo} alt='logo' className=''/>
+        <Image boxSize='100px' src={Logo} alt='logo' className='' />
       </Container>
 
       <Box
@@ -64,7 +64,10 @@ export default function SmallCentered() {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text fontWeight={700}>© 2023 Sunhearrt Ceramik. All rights reserved</Text>
+          <Flex flexWrap={'wrap'} maxW={'50%'}>
+            <Text fontWeight={700}>© 2023 Sunhearrt Ceramik. All rights reserved</Text>
+            <Text fontWeight={700}>Developed by <a href="https://rippleinfosoft.com">Ripple Infosoft</a></Text>
+          </Flex>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://twitter.com/sunhearrt'}>
               <FaTwitter />
