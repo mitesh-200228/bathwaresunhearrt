@@ -90,8 +90,9 @@ export default function gridListWith() {
             />
           </Flex>
         </Container>
-        <Footer />
+
       </Box>
+        <Footer />
       {/* <Footer /> */}
     </>
   )
