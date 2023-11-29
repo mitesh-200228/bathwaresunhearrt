@@ -10,12 +10,12 @@ import Complaint from './components/Complaint';
 // import Login from './components/Login';
 // import YourComplaints from './components/YourComplaints';
 import Admin from './components/Admin';
+import Footer from './components/Footer';
 // import AdminDashboard from './components/AdminDashboard';
 // require('dotenv').config()
 function App() {
-  
+
   const randomString = process.env.KEY;
-  console.log(randomString);
   return (
     <ChakraProvider theme={theme}>
       <Navbar />
@@ -25,6 +25,7 @@ function App() {
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route path="/yourcomplaints" element={<YourComplaints />} /> */}
         <Route path="/adminsunhearrtlogin" element={<Admin />} />
+
         {/* <Route path='/admindashboard' element={<AdminDashboard keypass={randomString}/>}></Route> */}
       </Routes>
     </ChakraProvider>
